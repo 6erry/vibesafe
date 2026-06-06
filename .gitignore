@@ -1,0 +1,17 @@
+node_modules/
+dist/
+!packages/github-action/dist/
+!packages/github-action/dist/index.js
+!packages/github-action/dist/index.d.ts
+coverage/
+.turbo/
+.next/
+build/
+*.tsbuildinfo
+.DS_Store
+tmp/
+.env
+.env.*
+!.env.example
+vibesafe-report.*
+*.sarif

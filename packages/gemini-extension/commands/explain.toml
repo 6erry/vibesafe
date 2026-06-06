@@ -1,0 +1,5 @@
+description = "Explain the latest VibeSafe report"
+prompt = """
+Read the latest VibeSafe report in this repository, explain each finding in plain language,
+and suggest concrete remediation steps.
+"""

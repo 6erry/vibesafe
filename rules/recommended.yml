@@ -1,0 +1,31 @@
+version: 1
+profile: recommended
+
+scan:
+  mode: diff
+  include:
+    - "**/*"
+  exclude:
+    - "node_modules/**"
+    - ".git/**"
+    - ".next/**"
+    - "dist/**"
+    - "build/**"
+
+rules:
+  secrets.no-env-commit: error
+  secrets.api-key-pattern: warn
+  firebase.public-read-write: error
+  supabase.rls-disabled: error
+  stripe.webhook-no-signature: error
+  cors.wildcard-origin: warn
+  github-actions.overprivileged-permissions: warn
+
+agent:
+  block:
+    - read_env_files
+    - destructive_commands
+  requireApproval:
+    - git_push
+    - npm_publish
+    - firebase_deploy

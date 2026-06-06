@@ -1,0 +1,5 @@
+description = "Run VibeSafe safety checks"
+prompt = """
+Run `npx @6erry/vibesafe check --mode diff` in this repository and summarize any findings.
+If VibeSafe is not installed, explain how to run `npx @6erry/vibesafe check --mode full`.
+"""

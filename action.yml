@@ -1,0 +1,33 @@
+name: VibeSafe
+description: Safety checks for AI-assisted development.
+author: VibeSafe contributors
+
+inputs:
+  mode:
+    description: "Scan mode: full, diff, staged"
+    required: false
+    default: diff
+  profile:
+    description: "Rule profile: recommended, strict, indie, agency"
+    required: false
+    default: recommended
+  fail-on:
+    description: "Minimum severity to fail the workflow"
+    required: false
+    default: high
+  comment:
+    description: "Whether to comment on PR"
+    required: false
+    default: "true"
+  output:
+    description: "Output report file path"
+    required: false
+    default: vibesafe-report.md
+  format:
+    description: "Output report format: text, markdown, json, sarif"
+    required: false
+    default: markdown
+
+runs:
+  using: node20
+  main: packages/github-action/dist/index.js

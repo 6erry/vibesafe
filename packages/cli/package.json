@@ -1,0 +1,54 @@
+{
+  "name": "@6erry/vibesafe",
+  "version": "0.1.0",
+  "description": "Best-effort safety checks for AI-assisted development.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/6erry/vibesafe.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/6erry/vibesafe/issues"
+  },
+  "homepage": "https://github.com/6erry/vibesafe#readme",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "vibesafe": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "ai",
+    "security",
+    "cli",
+    "developer-tools",
+    "github-actions",
+    "claude-code"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --passWithNoTests",
+    "lint": "biome check src"
+  },
+  "dependencies": {
+    "@6erry/vibesafe-claude-hook": "workspace:*",
+    "@6erry/vibesafe-core": "workspace:*",
+    "commander": "^14.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.2.0"
+  }
+}

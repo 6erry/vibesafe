@@ -1,0 +1,28 @@
+version: 1
+profile: agency
+
+scan:
+  mode: diff
+  include:
+    - "**/*"
+  exclude:
+    - "node_modules/**"
+    - ".git/**"
+    - ".next/**"
+    - "dist/**"
+    - "build/**"
+
+rules:
+  secrets.no-env-commit: error
+  secrets.api-key-pattern: error
+  firebase.public-read-write: error
+  supabase.rls-disabled: error
+  supabase.service-role-client: error
+  stripe.webhook-no-signature: error
+  stripe.secret-key-client: error
+  cors.wildcard-origin: warn
+  api.admin-no-auth: warn
+  github-actions.overprivileged-permissions: error
+  github-actions.pull-request-target-risk: error
+  github-actions.unpinned-action: warn
+  diff.large-change: warn

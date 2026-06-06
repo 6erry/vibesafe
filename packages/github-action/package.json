@@ -1,0 +1,53 @@
+{
+  "name": "@6erry/vibesafe-github-action",
+  "version": "0.1.0",
+  "description": "GitHub Action entrypoint for VibeSafe.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/6erry/vibesafe.git",
+    "directory": "packages/github-action"
+  },
+  "bugs": {
+    "url": "https://github.com/6erry/vibesafe/issues"
+  },
+  "homepage": "https://github.com/6erry/vibesafe#readme",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "action.yml",
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "ai",
+    "security",
+    "github-action",
+    "developer-tools",
+    "pull-request"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build": "pnpm clean && tsc -p tsconfig.json --emitDeclarationOnly && esbuild src/index.ts --bundle --platform=node --target=node20 --format=cjs --outfile=dist/index.js",
+    "test": "vitest run --passWithNoTests",
+    "lint": "biome check src"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.1",
+    "@6erry/vibesafe-core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "esbuild": "^0.27.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.2.0"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "@6erry/vibesafe-claude-hook",
+  "version": "0.1.0",
+  "description": "Claude Code hook guard helpers for VibeSafe.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/6erry/vibesafe.git",
+    "directory": "packages/claude-hook"
+  },
+  "bugs": {
+    "url": "https://github.com/6erry/vibesafe/issues"
+  },
+  "homepage": "https://github.com/6erry/vibesafe#readme",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "ai",
+    "claude-code",
+    "security",
+    "developer-tools",
+    "hooks"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --passWithNoTests",
+    "lint": "biome check src"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.2.0"
+  }
+}

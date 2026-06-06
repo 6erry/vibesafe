@@ -1,0 +1,4 @@
+description = "Initialize VibeSafe"
+prompt = """
+Run `npx @6erry/vibesafe init` and help the user choose whether to add GitHub Action and Claude Code hook templates.
+"""

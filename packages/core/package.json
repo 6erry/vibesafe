@@ -1,0 +1,55 @@
+{
+  "name": "@6erry/vibesafe-core",
+  "version": "0.1.0",
+  "description": "Core scanner and rule engine for VibeSafe.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/6erry/vibesafe.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/6erry/vibesafe/issues"
+  },
+  "homepage": "https://github.com/6erry/vibesafe#readme",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "ai",
+    "security",
+    "developer-tools",
+    "static-analysis",
+    "rule-engine"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "lint": "biome check src test"
+  },
+  "dependencies": {
+    "fast-glob": "^3.3.3",
+    "yaml": "^2.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.2.0"
+  }
+}

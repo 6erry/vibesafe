@@ -1,0 +1,10 @@
+{
+  "name": "vibesafe",
+  "version": "0.1.0",
+  "description": "Safety checks for AI-assisted development.",
+  "commands": {
+    "check": "commands/check.toml",
+    "explain": "commands/explain.toml",
+    "init": "commands/init.toml"
+  }
+}

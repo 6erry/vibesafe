@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  npm:
+    runs-on: ubuntu-latest
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.5.2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm test
+      - run: pnpm smoke
+      - run: pnpm pack:all
+      - run: pnpm pack-install-smoke
+      - name: Publish npm packages
+        if: env.NPM_TOKEN != ''
+        env:
+          NODE_AUTH_TOKEN: ${{ env.NPM_TOKEN }}
+        run: |
+          pnpm --filter @6erry/vibesafe-core publish --access public --no-git-checks
+          pnpm --filter @6erry/vibesafe-claude-hook publish --access public --no-git-checks
+          pnpm --filter @6erry/vibesafe publish --access public --no-git-checks

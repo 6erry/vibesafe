@@ -1,0 +1,21 @@
+version: 1
+profile: indie
+
+scan:
+  mode: diff
+  include:
+    - "**/*"
+  exclude:
+    - "node_modules/**"
+    - ".git/**"
+    - ".next/**"
+    - "dist/**"
+    - "build/**"
+
+rules:
+  secrets.no-env-commit: error
+  firebase.public-read-write: error
+  supabase.rls-disabled: warn
+  stripe.webhook-no-signature: error
+  cors.wildcard-origin: warn
+  github-actions.overprivileged-permissions: warn

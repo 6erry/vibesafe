@@ -1,0 +1,25 @@
+{
+  "name": "vibesafe-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/6erry/vibesafe.git"
+  },
+  "packageManager": "pnpm@11.5.2",
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "lint": "biome check package.json pnpm-workspace.yaml biome.json action.yml README.md README.ja.md docs scripts .github/workflows packages/*/package.json packages/*/action.yml packages/*/tsconfig.json packages/*/src packages/core/test",
+    "format": "biome format --write .",
+    "smoke": "pnpm build && node scripts/smoke-test.mjs",
+    "pack:all": "node scripts/pack-all.mjs",
+    "pack-install-smoke": "node scripts/pack-install-smoke.mjs"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.0.0",
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.2.0"
+  }
+}
