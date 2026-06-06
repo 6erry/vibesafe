@@ -38722,6 +38722,7 @@ async function run() {
   ]);
   const shouldComment = core.getBooleanInput("comment");
   const output = core.getInput("output") || "vibesafe-report.md";
+  const githubToken = core.getInput("github-token") || process.env.GITHUB_TOKEN;
   const format = inputEnum("format", [
     "text",
     "markdown",
@@ -38745,7 +38746,7 @@ async function run() {
   await core.summary.addRaw(markdownReport).write();
   if (shouldComment && github.context.payload.pull_request) {
     await upsertPullRequestComment(`${marker}
-${markdownReport}`);
+${markdownReport}`, githubToken);
   }
   if ((0, import_vibesafe_core.shouldFail)(findings, failOn)) {
     core.setFailed(`VibeSafe found findings at or above ${failOn}.`);
@@ -38763,8 +38764,7 @@ function renderReport(format, findings, warnings) {
   }
   return (0, import_vibesafe_core.renderMarkdownReport)(findings, warnings);
 }
-async function upsertPullRequestComment(body) {
-  const token = process.env.GITHUB_TOKEN;
+async function upsertPullRequestComment(body, token) {
   const pullRequest = github.context.payload.pull_request;
   if (!token || !pullRequest) {
     core.info(
