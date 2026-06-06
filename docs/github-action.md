@@ -26,6 +26,7 @@ jobs:
           fail-on: high
           comment: true
           format: markdown
+          github-token: ${{ github.token }}
 ```
 
 Write SARIF instead:
@@ -36,6 +37,7 @@ Write SARIF instead:
           mode: diff
           format: sarif
           output: vibesafe.sarif
+          github-token: ${{ github.token }}
 ```
 
 The action writes a report file and can update an existing VibeSafe PR comment.

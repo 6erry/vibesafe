@@ -70,6 +70,7 @@ jobs:
           mode: diff
           fail-on: high
           comment: true
+          github-token: ${{ github.token }}
 ```
 
 ## Claude Code Hook

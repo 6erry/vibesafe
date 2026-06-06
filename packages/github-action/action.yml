@@ -27,6 +27,10 @@ inputs:
     description: "Output report format: text, markdown, json, sarif"
     required: false
     default: markdown
+  github-token:
+    description: "GitHub token used to create or update PR comments"
+    required: false
+    default: ""
 
 runs:
   using: node24
