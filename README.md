@@ -13,6 +13,8 @@ CORS, risky GitHub Actions, and large suspicious diffs.
 
 ## Quick Start
 
+Requires Node.js 22.13 or newer.
+
 ```bash
 npx @6erry/vibesafe check --mode full
 ```

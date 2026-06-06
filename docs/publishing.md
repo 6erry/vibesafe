@@ -11,6 +11,8 @@ bundled `packages/github-action/dist/index.js` must be committed for releases.
 
 ## Local Checks
 
+Use Node.js 22.13 or newer.
+
 ```bash
 npx pnpm@11.5.2 install
 npx pnpm@11.5.2 lint

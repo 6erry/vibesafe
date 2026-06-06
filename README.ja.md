@@ -11,6 +11,8 @@ VibeSafeは専門的なセキュリティ監査、脅威モデリング、コー
 
 ## Quick Start
 
+Node.js 22.13 以上が必要です。
+
 ```bash
 npx @6erry/vibesafe check --mode full
 ```

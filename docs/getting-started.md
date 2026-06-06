@@ -1,5 +1,7 @@
 # Getting Started
 
+VibeSafe requires Node.js 22.13 or newer.
+
 Install and run VibeSafe with npx:
 
 ```bash
